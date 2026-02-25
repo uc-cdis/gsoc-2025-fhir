@@ -1,0 +1,5 @@
+apiVersion: v2
+name: fhir-proxy-local
+description: Local-only Helm chart for the Gen3 FHIR Proxy
+version: 0.1.0
+appVersion: "1.0"

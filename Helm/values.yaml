@@ -1,0 +1,25 @@
+replicaCount: 1
+
+image:
+  repository: fhir-proxy
+  tag: latest
+  pullPolicy: Never
+
+service:
+  type: ClusterIP
+  port: 8888
+
+env:
+  AUTH_SERVER_URL: "http://host.minikube.internal:8081"
+  ARBORIST_URL: "http://host.minikube.internal:8081"
+  HAPI_FHIR_URL: "http://host.minikube.internal:8080/fhir"
+  SECURITY_TAG_PREFIX: "gen3"
+  PROXY_TIMEOUT: "3000"
+  ARBORIST_TIMEOUT: "5000"
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+services:
+  fhir-proxy:
+    environment:
+      - ARBORIST_URL=http://arborist:8081/auth/resources
+    build: .
+    container_name: fhir-proxy
+    ports:
+      - "8888:8888"
+    env_file:
+      - .env
+    depends_on:
+      - hapi-fhir
+      - arborist
+
+  hapi-fhir:
+    image: hapiproject/hapi:latest
+    container_name: hapi-fhir
+    ports:
+      - "8082:8080"
+
+  arborist:
+    image: alpine
+    container_name: arborist
+    command: ["sh", "-c", "while true; do echo 'Mock Arborist running'; sleep 60; done"]
+    ports:
+      - "8081:8081"
+

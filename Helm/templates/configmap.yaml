@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fhir-proxy-config
+data:
+  AUTH_SERVER_URL: {{ .Values.env.AUTH_SERVER_URL | quote }}
+  ARBORIST_URL: {{ .Values.env.ARBORIST_URL | quote }}
+  HAPI_FHIR_URL: {{ .Values.env.HAPI_FHIR_URL | quote }}
+  SECURITY_TAG_PREFIX: {{ .Values.env.SECURITY_TAG_PREFIX | quote }}
+  PROXY_TIMEOUT: {{ .Values.env.PROXY_TIMEOUT | quote }}
+  ARBORIST_TIMEOUT: {{ .Values.env.ARBORIST_TIMEOUT | quote }}

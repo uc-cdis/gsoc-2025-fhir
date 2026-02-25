@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fhir-proxy
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: fhir-proxy
+  template:
+    metadata:
+      labels:
+        app: fhir-proxy
+    spec:
+      containers:
+        - name: fhir-proxy
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 8888
+          envFrom:
+            - configMapRef:
+                name: fhir-proxy-config

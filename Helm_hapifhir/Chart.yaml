@@ -1,0 +1,6 @@
+apiVersion: v2
+name: hapi-fhir
+description: HAPI FHIR JPA Server
+version: 0.1.0
+appVersion: "latest"
+
